@@ -27,16 +27,16 @@ function App() {
       const sheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[sheetName];
 
-      const colValues = [];
-      const cells = Object.keys(worksheet);
-      for (var i = 0; i < Object.keys(cells).length; i++) {
-          if( cells[i].indexOf('1') > -1)
-          {
-              colValues.push(worksheet[cells[i]].v); //Contails all column names
-          }
-      }
+      // const colValues = [];
+      // const cells = Object.keys(worksheet);
+      // for (var i = 0; i < Object.keys(cells).length; i++) {
+      //     if( cells[i].indexOf('1') > -1)
+      //     {
+      //         colValues.push(worksheet[cells[i]].v); //Contails all column names
+      //     }
+      // }
 
-      const json = xlsx.utils.sheet_to_json(worksheet, {blankrows: false, raw: true, rawNumbers: true });
+      const json = xlsx.utils.sheet_to_json(worksheet, {defval:'No Value Found', blankrows: true, raw: true, rawNumbers: true });
       console.log(json);
 
       // convert JSON to XML and Download XML file 
